@@ -22,7 +22,6 @@ BUILD_ID_SALT ?= salt
 host:=$(BUILD)
 ifneq ($(HOST),)
 host:=$(HOST)
-host_toolchain:=$(HOST)-
 endif
 
 ifneq ($(DEBUG),)
@@ -168,10 +167,10 @@ $(host_prefix)/share/config.site: check-packages
 check-packages: check-sources
 
 clean-all: clean
-  @rm -rf $(SOURCES_PATH) x86_64* i686* mips* arm* aarch64*
+	@rm -rf $(SOURCES_PATH) x86_64* i686* mips* arm* aarch64*
 
 clean:
-  @rm -rf $(WORK_PATH) $(BASE_CACHE) $(BUILD)
+	@rm -rf $(WORK_PATH) $(BASE_CACHE) $(BUILD)
 
 install: check-packages $(host_prefix)/share/config.site
 
